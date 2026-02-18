@@ -53,16 +53,36 @@ gamerTwo.callByGamertag();
 // console.log(theHobbit.info()); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet
 
 
-function Book (title, author, pages, readStatus) {
+function Book(title, author, pages, readStatus) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readStatus = readStatus;
-    this.info = function (){
+    this.info = function () {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus}`
     }
 }
 
-const theHobbit = new Book ("The Hobbit", "J.R.R Tolkien", 295, "not read yet");
+const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", 295, "not read yet");
 
 console.log(theHobbit.info());
+
+
+// Prototype
+
+// All objects in JS have a [[Prototype]].
+
+// - You can check the object’s [[Prototype]] by using the Object.getPrototypeOf() 
+
+// The [[Prototype]] is another object...
+// Prototype objects can have properties and functions, (just as "Player" from above) such as .name, 
+// .age, .etc and function as sayName(), countDeposit(), etc.
+
+// ... that the oriiginal object inherits from, and has access to all of its 
+// [[Prototypes]]'s properties or functions, if they have been defined. 
+// For example, if there was a .sayHello() function defined on the [[Prototype]], 
+// player1 can access the function just as if it was its own function - player1.sayHello(). 
+
+
+
+
