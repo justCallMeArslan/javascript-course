@@ -85,4 +85,9 @@ console.log(theHobbit.info());
 
 
 
+let x = {};
+
+const a11 = Object.getPrototypeOf(x);
+
+console.log(x);
 
