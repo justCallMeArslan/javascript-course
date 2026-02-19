@@ -90,5 +90,25 @@ let x = {};
 const a11 = Object.getPrototypeOf(x);
 console.log(x); // {}
 console.log(a11); // [Object:null] {}
- 
 
+
+// JS tutorials on "this"
+
+// in global scope this refernces the global object which is window
+
+// this === window; // true
+
+// this.color = red;
+// console.log(window.color); // red
+
+// - The this keyword refers to object that’s currently execute a function.
+// - When you call a function, the this inside the function refers to the global object 
+// in non-strict mode or undefined in strict mode.
+// - When you call a function as a method of an object, this refers to the object 
+// that owns the method.
+// - When you use a function as a constructor with the new keyword, this is set to 
+// newly created object.
+// - The call() and apply() methods allow you to explicitly set the value of this 
+// when you call a function.
+// - Arrow functions do not have their own this. Instead, they use this from the 
+// surrounding code where they were defined.
