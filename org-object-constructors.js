@@ -88,6 +88,7 @@ console.log(theHobbit.info());
 let x = {};
 
 const a11 = Object.getPrototypeOf(x);
-
-console.log(x);
+console.log(x); // {}
+console.log(a11); // [Object:null] {}
+ 
 
