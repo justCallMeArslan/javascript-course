@@ -12,19 +12,15 @@ let rabbit = {
   jumps: true
 };
 
-console.log( rabbit.jumps ); // ? (1)
+console.log(rabbit.jumps); // true
 
 delete rabbit.jumps;
 
-console.log( rabbit.jumps ); // ? (2)
+console.log(rabbit.jumps); // null
 
 delete animal.jumps;
 
-console.log( rabbit.jumps ); // ? (3)
-
-
-
-
+console.log(rabbit.jumps); // undefined
 
 
 
@@ -58,10 +54,26 @@ let pockets = {
   money: 2000
 };
 
+Object.setPrototypeOf(pockets, bed);
+Object.setPrototypeOf(bed, table);
+Object.setPrototypeOf(table, head);
+
+console.time("head");
+for (let i = 0; i < 1e7; i++) {
+  head.glasses;
+}
+console.timeEnd("head");
+
+console.time("pockets");
+for (let i = 0; i < 1e7; i++) {
+  pockets.glasses;
+}
+console.timeEnd("pockets");
 
 
-
-
+// answer: it seams like its almost the same time on check, but my take will be that the 
+// value of head.glasses willbe slithly faster then pockets.glassesm cause its direct 
+// child of head object :
 
 
 // Where does it write?
@@ -76,11 +88,14 @@ let animal1 = {
 };
 
 let rabbit1 = {
-  __proto__: animal
+  __proto__: animal1
 };
 
-rabbit.eat();
+rabbit1.eat();
 
+
+// answer : rabbit1 as in JS .full will refer to callig object instead of object 
+// where its defined.
 
 
 
@@ -95,7 +110,8 @@ let hamster = {
   stomach: [],
 
   eat(food) {
-    this.stomach.push(food);
+    //  this.stomach.push(food);  instead of pushing items into array (adds to it)
+    this.stomach = [food]; // we use "=" and refresh array with every new data (as a new one)
   }
 };
 
@@ -104,12 +120,15 @@ let speedy = {
 };
 
 let lazy = {
-  __proto__: hamster
 };
+
+Object.setPrototypeOf(lazy, hamster)
 
 // This one found the food
 speedy.eat("apple");
-console.log( speedy.stomach ); // apple
+console.log(speedy.stomach); // apple
 
 // This one also has it, why? fix please.
-console.log( lazy.stomach ); // apple
+// lazy.eat("cucumber"); used as check that concept crystal clear
+console.log(lazy.stomach); // apple
+
