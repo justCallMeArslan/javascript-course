@@ -47,3 +47,10 @@ console.log(add8(10)); // 20 (9 from last + ++ + 10);
 
 const add79100105110 = makeAddingFunction(79100105110);
 console.log(add79100105110(111687378)); // 79211792488
+
+// closure saves value of previous operation and function call, thats why in makeAddingFunction()
+// we see incremented by 1 numbers getting used as default values for another call and recieve
+/// another increment in that call (add 5 and add8 examples)
+
+
+// What is wrong with constructs? 
