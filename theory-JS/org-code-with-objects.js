@@ -77,7 +77,7 @@ const playerTwo = {
     marker: "O",
 };
 
-// we can retrieve and reuse data stroed in objects in many ways , e.g:
+// we can retrieve and reuse data stored in objects in many ways , e.g:
 
 function gameOver(winningPlayer) {
     console.log("Congratulations!");
@@ -85,13 +85,13 @@ function gameOver(winningPlayer) {
 }
 
 // in this example we use object data to provide name and marker to winning player,
-// without creating another conditions or 
+// without creating another conditions
 
 
 
 // Objects as design pattern
 
-// objects can be used for organizing functionality, using them that way is one if the 
+// objects can be used for organizing functionality, using them that way is one of the 
 // pilars/specs of OOP (Object Oriented Programmming), where logic stored in methods 
 // and then those methods used to interact with data
 
