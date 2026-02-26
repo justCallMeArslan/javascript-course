@@ -125,3 +125,37 @@ console.log({
 }); // { discordName: '@josh', reputation: 2 }
 
 
+// Prototypal inheritance with factories
+
+
+// we can inheritance between factories by extracting from one obj and return in closure:
+
+function createPlayer(name, level) {
+    const { getReputation, giveReputation } = createUser(name); // extracted from above
+
+    const increaseLevel = () => { level++; };
+    const getLevel = () => level; // source to get level after increment
+    return { name, getReputation, giveReputation, increaseLevel, getLevel };
+}
+
+const cody = createPlayer("Cody", 25);
+cody.giveReputation(); // increments reputation
+cody.increaseLevel(); //increments level 
+
+
+console.log(cody.getLevel(), cody.getReputation()); // 26 , 1
+console.log(cody); // { name: 'Cody' getReputation: [Function: getReputation], 
+// giveReputation: [Function: giveReputation], increaseLevel: [Function: increaseLevel], 
+// getLevel: [Function: getLevel]}
+
+
+// The nodule pattern
+
+
+// Module is created as an IIFE (immediately invoked function expression) with a function inside:
+
+const SomeModule = (function () { })();
+
+// Everything within the body of said function is bound to that module and can be seen by each 
+// other. Modules emulates „public” and „private” methods by creating mentioned earlier scope 
+// and exposing only those things that are declared.
