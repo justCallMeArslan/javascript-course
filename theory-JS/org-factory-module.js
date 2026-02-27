@@ -57,7 +57,7 @@ console.log(add79100105110(111687378)); // 79211792488
 
 
 // - chaining can become complicated and lead to errors.
-// - no safeguards(without new ad additional safegurds program fails to work and creates errors, 
+// - no safeguards(without new and additional safegurds program fails to work and creates errors, 
 // which can be difficult to track).
 
 
@@ -152,10 +152,10 @@ console.log(cody); // { name: 'Cody' getReputation: [Function: getReputation],
 // The nodule pattern
 
 
-// Module is created as an IIFE (immediately invoked function expression) with a function inside:
+// Module is created as an IIFE (Immediately Invoked Function Expression) with a function inside:
 
 const SomeModule = (function () { })();
 
 // Everything within the body of said function is bound to that module and can be seen by each 
-// other. Modules emulates „public” and „private” methods by creating mentioned earlier scope 
+// other. Modules emulates „public” and „private” methods by creating block scope 
 // and exposing only those things that are declared.
