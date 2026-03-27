@@ -99,3 +99,20 @@ let denis = new UserUpdated("Denis", new Date(1990, 9, 1));
 
 console.log(denis.birthday);
 console.log(denis.age);
+
+
+
+
+// Class 
+
+// the basic syntax is:
+
+class MyClass {
+    constructor() {}
+    method1() {}
+    method2() {}
+    method3() {}
+    //...
+}
+
+// constructor() method is called automtically by bobject can be initialized there:
