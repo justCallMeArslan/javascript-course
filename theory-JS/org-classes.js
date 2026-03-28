@@ -115,4 +115,10 @@ class MyClass {
     //...
 }
 
-// constructor() method is called automtically by bobject can be initialized there:
+// constructor() method is called automtically by bobject can be initialized there.
+
+class User {
+    constructor(name) {
+        this.name = name;
+    }
+}
