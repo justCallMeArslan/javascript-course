@@ -227,3 +227,30 @@ new User6().callMe();  // Call me any time
 
 
 
+// Class fields 
+
+// "class fields" is a syntax that allows to add any properties:
+
+class User7 {
+    name = "Cutie";
+
+    sayHi() {
+        console.log(`Hello, ${this.name}!`);
+    }
+}
+
+new User7().sayHi();
+
+// so we just use '=' to declare and thats it. important difference is that they are set on 
+// individual objects, not User.prototype:
+
+class User8 {
+    name = "Patootie";
+}
+
+let user8 = new User8();
+console.log(user8.name); // Patootie
+console.log(User8.prototype.user); // undefined
+console.log(Object.getOwnPropertyNames(User8.prototype)); // [constructor], exists but empty 
+// without methods
+
