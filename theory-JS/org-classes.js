@@ -117,8 +117,113 @@ class MyClass {
 
 // constructor() method is called automtically by bobject can be initialized there.
 
-class User {
+class User1 {
     constructor(name) {
         this.name = name;
     }
+
+    sayHI() {
+        console.log(this.name);
+    }
 }
+
+let user1 = new User1 ("Potter"); // creates new object with name Potter and assign this.name to it
+user1.sayHI();  // Potter
+
+
+// in JS. a class is a kind of function:
+
+class User2 {
+    constructor(name) {
+        this.name = name;
+    }
+    sayHi() {
+        console.log(this.name);
+        
+    }
+}
+
+console.log(typeof User2); // function
+
+
+// Three main differences between class and constructor function :
+
+// 1. class is labeled by a special internal property [[IsClassConstructor]]: true
+// 2. class methods are "enumerable". class definition sets enumerable: false for all methods in prot.
+// 3. classes always "use strict"
+
+
+
+// Class expression 
+
+// classes can behave the way function do, being one themselvev, so they can be defined inside 
+// another expression, passed around, returned, assigned, etc. Example of class expression:
+
+let User3 = class {
+    sayHi() {
+        console.log("Hello");
+    }
+}
+
+new User3().sayHi(); // Hello
+
+// dynamic way :
+
+function makeClass(phrase) {
+    return class {
+        sayHi() {
+            console.log(phrase);
+        }
+    }
+}
+
+let User4 = makeClass("Peppa pig");
+
+new User4().sayHi();
+
+
+
+// Getters/Setters
+
+// just like objects, classes may include getters/setters, computed properties, etc.
+
+class User5 {
+    constructor(name){
+        this.name = name;
+    }
+
+    get name () {
+        return this._name; 
+    }
+
+    set name (value) {
+        if (value.length < 2) {
+            console.log("Value is too short");
+            return; 
+        }
+        this._name = value;
+    }
+}
+
+let user5 = new User5 ("Willy - Dilly");
+console.log(user5.name); // Willy - Dilly
+// checking validation
+user5 = new User5 ("A"); // ....too short
+
+
+
+
+// Computed names 
+
+// example of computed name using brackets [...] :
+
+class User6 {
+    ['call' + 'Me']() {
+        console.log("Call me any time");
+    }
+}
+
+new User6().callMe();  // Call me any time
+
+
+
