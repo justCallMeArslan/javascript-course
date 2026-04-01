@@ -1,0 +1,5 @@
+# files and directories to ignore 
+webpack-pg/node_modules/
+.env
+webpack-pg/dist/
+.DS_Store
