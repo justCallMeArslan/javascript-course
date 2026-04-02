@@ -191,11 +191,9 @@ class User5 {
     constructor(name){
         this.name = name;
     }
-
     get name () {
         return this._name; 
     }
-
     set name (value) {
         if (value.length < 2) {
             console.log("Value is too short");
@@ -203,7 +201,7 @@ class User5 {
         }
         this._name = value;
     }
-}
+};
 
 let user5 = new User5 ("Willy - Dilly");
 console.log(user5.name); // Willy - Dilly
