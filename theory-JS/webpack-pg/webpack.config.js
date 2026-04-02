@@ -13,6 +13,23 @@ export default {
     plugins: [
         new HtmlWebpackPlugin({ // making sure Webpack configuration has access to HtmlWebpackPlugin
             template: "./src/template.html",
-        }) 
-    ]
-};
+        })
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/i, // checks for imported files with .css ending
+                use: ["style-loader", "css-loader"], // use these if found, order in [] is important
+            },
+            {
+                test: /\.html$/i, // checks for imported files with .html ending (for images in HTML)
+                use: ["html-loader"],
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i, // RegEx can be changed anytime, to add or 
+                // remove any unwanted file extensions
+                type: "asset/resource",
+            }
+        ]
+    }
+}

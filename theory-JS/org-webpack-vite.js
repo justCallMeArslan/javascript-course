@@ -1,3 +1,6 @@
+// Webpack
+
+
 // Webpack is a bundler (60-70% of legacy and 10-20% of new projects).
 
 // Webpack is an open-source JavaScript module bundler widely used in modern web development. 
@@ -23,5 +26,33 @@
 
 // browsers DONT HAVE Node's requier() by default
 
+
 // HtmlWebpackPlugin is used to bundle JS with HTML. Links JS to HTML by itself.
+
+
+// css-loader reads any CSS files and stores result as a string.
+
+// style-loader takes takes that string and adds JS code that applies those styles to the page.
+
+// html-loader detects image file paths in HTML template and loads right image files. 
+
+// if need to use a local image file in JS (e.g DOM) we need to import images into JS module 
+// but images arent JS, so we need to tell Webpack that these files will be assets by adding 
+// asset/resource rule. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Vite
+
 
