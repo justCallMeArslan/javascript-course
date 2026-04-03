@@ -41,7 +41,9 @@
 // asset/resource rule. 
 
 
-
+// Webpack starts from an entry file, builds a dependency graph by analyzing imports, processes 
+// each module with loaders, uses plugins to extend the build process, and outputs optimized 
+// bundles and assets for the browser.
 
 
 
