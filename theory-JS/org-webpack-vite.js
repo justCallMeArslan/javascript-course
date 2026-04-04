@@ -32,7 +32,7 @@
 
 // css-loader reads any CSS files and stores result as a string.
 
-// style-loader takes takes that string and adds JS code that applies those styles to the page.
+// style-loader takes that string and adds JS code that applies those styles to the page.
 
 // html-loader detects image file paths in HTML template and loads right image files. 
 
@@ -50,11 +50,18 @@
 
 
 
-
-
-
-
-
 // Vite
 
 
+// Vite took a different approach. It split the work into two parts:
+
+// 1. Dependencies (libraries that rarely change) are pre-bundled once using fast native 
+// tooling, so they're ready instantly.
+// 2. Source code (your application code that changes frequently) is served on-demand 
+// over native ESM. The browser loads only what it needs for the current page, and 
+// Vite transforms each file as it's requested.
+
+
+// Webpack: “I know everything upfront → build once → serve one file”
+// Vite: “I only know what I need → serve only what you request, but track relationships 
+// for updates and caching”
