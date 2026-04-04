@@ -65,3 +65,9 @@
 // Webpack: “I know everything upfront → build once → serve one file”
 // Vite: “I only know what I need → serve only what you request, but track relationships 
 // for updates and caching”
+
+
+// Vite also creates dependency graph, but only for better caching and optimization.
+
+// Vite by defaut runs Hot Module Replacement (re-renders modules which were changed), 
+// but HMR can be deactivated for deeper check/test. 
