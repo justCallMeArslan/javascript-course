@@ -22,3 +22,6 @@ function displayCatInfo(catString) {
   para1.textContent = motherInfo;
   para2.textContent = kittenInfo;
 }
+
+
+
