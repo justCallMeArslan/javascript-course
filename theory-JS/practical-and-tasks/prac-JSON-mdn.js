@@ -25,3 +25,6 @@ function displayCatInfo(catString) {
 
 
 
+// i have a webpack as a currcullum part , but i decided to use vite instead as its 
+// more popular and growing bundler, so now next lesson is about webpack on production mode,
+//  can you go study mode and give me lesson on production on vite?
