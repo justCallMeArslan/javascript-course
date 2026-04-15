@@ -31,7 +31,7 @@ function isGameOver1() {
 // replacable, if change is needed. 
 
 // 1. Single responsibility Princpiple - class, object or module should only have one responsibility.
-// Object can do not only thing, but all what it does shoud be part of one responsibility.
+// Object can do more than only one thing, but all what it does shoud be part of one responsibility.
 
 // 2. Open-closed principle says - code should be open for extension , but closed for modification,
 // meaning that if we want to add additional functionality. we should be able to simply extend, without
@@ -46,4 +46,12 @@ function isGameOver1() {
 // Chicken, Eagle and fly(). Eagle can fly(), so fly can be assigned to Eagle, but Chicken cant fly,
 // so it cannnot implement fly().
 
-// 5. 
+// 5. Dependency injection principle says - high level code should never depend on low level 
+// interfaces, and they both should instead use abstraction. 
+
+
+// SRP → “one reason to change”
+// OCP → “extend without modifying”
+// LSP → “subtypes must behave correctly”
+// ISP → “don’t force unused methods”
+// DIP → “depend on abstractions”
