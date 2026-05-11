@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <script src="org-form-validation.js" defer></script>
+    <style>
+        .main-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-cont">
+        <form class="main-form">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country">
+            <label for="zip">Postal code</label>
+            <input type="text" name="zip" id="zip">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <label for="confirm-pass">Confirm password</label>
+            <input type="password" name="confirm-pass" id="confirm-pass">
+        </form>
+    </div>
+</body>
+
+</html>
