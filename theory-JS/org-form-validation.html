@@ -5,12 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form validation</title>
-    <script src="org-form-validation.js" defer></script>
+
     <style>
         .main-form {
             display: flex;
             flex-direction: column;
             max-width: 300px;
+        }
+
+        input:user-valid {
+            border: 2px solid greenyellow;
+            background-color: beige;
+        }
+
+        input:user-invalid {
+            border: 2px solid red;
+            background-color: antiquewhite;
         }
     </style>
 </head>
@@ -23,13 +33,92 @@
             <label for="country">Country</label>
             <input type="text" name="country" id="country">
             <label for="zip">Postal code</label>
-            <input type="text" name="zip" id="zip">
+            <input type="text" name="zip" id="zip" maxlength="6">
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
             <label for="confirm-pass">Confirm password</label>
             <input type="password" name="confirm-pass" id="confirm-pass">
+            <button type="submit">Submit</button>
         </form>
     </div>
+
+
+
+    <script>
+
+        const form = document.querySelector(".main-form")
+        const email = form.querySelector("#email");
+        const country = form.querySelector("#country");
+        const postal = form.querySelector("#zip");
+        const pass = form.querySelector("#password");
+        const confPass = form.querySelector("#confirm-pass");
+        const btn = form.querySelector("button");
+
+
+        email.addEventListener("input", () => {
+            if (!email.value.endsWith("@gmail.com")) {
+                email.setCustomValidity("Please use gmail");
+            } else {
+                email.setCustomValidity("")
+            }
+            email.reportValidity();
+        });
+
+        country.addEventListener("input", () => {
+            if (!/^[a-zA-Z]+$/.test(country.value)) {
+                country.setCustomValidity("Only latin alphabet")
+            } else {
+                country.setCustomValidity("");
+            }
+            country.reportValidity();
+        })
+
+
+        postal.addEventListener("input", () => {
+            if (!/^\d{6}$/.test(postal.value)) {
+                postal.setCustomValidity("Too short, use correct number")
+            } else {
+                postal.setCustomValidity("")
+            }
+
+            postal.reportValidity();
+        })
+
+        pass.addEventListener("input", () => {
+
+            const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{10,}$/;
+            const text = `Password mast contain:
+            • One numeric symbol
+            • One special symbol 
+            • One uppercase letter 
+            • One lowercase letter 
+            • Minimum 10 characters`;
+
+
+            if (!regEx.test(password.value)) {
+                pass.setCustomValidity(text);
+            } else
+                pass.setCustomValidity("");
+
+            pass.reportValidity();
+        })
+
+        confPass.addEventListener("input", () => {
+            if (confPass.value !== pass.value) {
+                confPass.setCustomValidity("Passwords do not match")
+            } else {
+                confPass.setCustomValidity("");
+            }
+
+            confPass.reportValidity();
+
+        })
+
+        btn.addEventListener("click", (e)=>{
+            e.preventDefault();
+        })
+
+    </script>
 </body>
 
 </html>
