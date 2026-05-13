@@ -35,19 +35,88 @@ myData.then(function(data){ // .then() tells it to wait until the promise is res
 // then() tells to wait until fetching is completed, and only after that executes 
 // request from piecOfData
 
-var fs = require('fs')
-var myNumber = undefined
 
-function addOne(callback) {
-  fs.readFile('number.txt', function doneReading(err, fileContents) {
-    myNumber = parseInt(fileContents)
-    myNumber++
-    callback()
-  })
+
+// JS is sigle threaded progrmming language, so it can do one thing at a time
+
+// Call stack example :
+
+function hello () {
+    console.log("Hello World");
 }
 
-function logMyNumber() {
-  console.log(myNumber)
+function print () {
+    hello();
 }
 
-addOne(logMyNumber)
+function greet() {
+    print()
+}
+
+greet();
+
+//order of execution 
+
+// Call flow (call stack push):
+
+// [empty]
+// greet() 
+// -> print() 
+//    -> hello() 
+//       -> log() 
+
+
+// Return flow (call stack pop)
+
+// log() returns
+// hello() returns 
+// print() returns
+// greet() returns
+// [empty]
+
+// Event process should not be slowed with fetching/image rendering and etc, 
+// for that sake we use callbacks which will be run simultaneously (under the hood).
+// Cbs will be sent to queue and will be passed to call stack whenever its queued 
+// (setTimeout example) or when call stack empty.
+
+
+const array = [1, 2, 3];
+
+array.forEach(function (i) { 
+  console.log(i);
+})
+
+// call stack operation : 
+
+// whole array + forEach runs in CS and logs run one by one for each element of array
+
+
+function asyncForEach (array, cb) {
+  array.forEach(function (i) {
+    setTimeout(()=> cb(i), 0);
+  });
+}
+
+asyncForEach(array, function (i) {
+  console.log(i);
+})
+
+// call stack operations: 
+
+// asyncForEach runs and calls for array.forEach(), which later calls cb in setTimeout. 
+// cb (anonymous()/log) will be passed into WebAPI and later to call queue , from which it will be
+// added to call stack one by one (when is empty and each previous anonymous()/log popped out);
+
+
+// setTimeout delay time is the time when task sent to task queue, not into call stack
+
+// After the current synchronous code finishes, the event loop empties the microtask 
+// queue completely before processing the next task from the macrotask (callback) queue.
+
+// Micotask queue scheduled by :
+
+// Promises handlers 
+// queueMicrotasks 
+// async function bodies after await resolved
+// mutation observer callbacks
+// (Node.js) process.nextTick() — higher priority than microtasks
