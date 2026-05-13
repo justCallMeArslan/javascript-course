@@ -120,3 +120,77 @@ asyncForEach(array, function (i) {
 // async function bodies after await resolved
 // mutation observer callbacks
 // (Node.js) process.nextTick() — higher priority than microtasks
+
+new Promise ((resolve) => {
+  console.log(1);
+  resolve(2)
+}).then (result=> console.log(result));
+
+console.log(3);
+
+// answer 1 3 2 
+
+// A Promise starts synchronously, but its completion handlers (then/catch/finally)
+// always run asynchronously.
+
+
+// practice:
+
+new Promise((resolve) => {
+  console.log("A");
+  resolve("B");
+}).then((value) => {
+  console.log(value);
+});
+
+console.log("C");
+
+// answer : A C B (+)
+
+new Promise((resolve) => {
+  resolve(10);
+})
+.then((x) => {
+  return x + 5;
+})
+.then((y) => {
+  console.log(y);
+});
+
+// answer : 15 (return stop execution!) (+)
+
+
+console.log(1);
+
+new Promise((resolve) => {
+  console.log(2);
+  resolve(3);
+}).then((x) => {
+  console.log(x);
+});
+
+console.log(4);
+
+
+// answer: 1 , 2, 4, 3 (+)
+
+
+const p = new Promise((resolve) => {
+  resolve("X");
+});
+
+p.then((v) => console.log("A", v));
+p.then((v) => console.log("B", v));
+
+
+// answer: A, X , B, X  (+)
+
+
+new Promise((resolve) => {
+  resolve(1);
+  console.log("after resolve");
+}).then((x) => {
+  console.log(x);
+});
+
+// answer:  after , 1 (+)
