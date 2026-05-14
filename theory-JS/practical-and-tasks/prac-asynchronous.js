@@ -195,13 +195,14 @@ function createBox(color) {
   div.style.width = "100px";
   div.style.height = "100px";
   div.className = 'box';
+  div.style.backgroundColor = "purple";
   document.body.append(div);
 
   return new Promise(resolve => {
     setTimeout(() => {
       div.style.background = color;
       resolve(div);
-    }, 1000);
+    }, 3000);
   })
 }
 
@@ -209,15 +210,18 @@ function createBox(color) {
 function go() { // onclick set separately
   const result = createBox("red")
 
-  result.then(div => {
-    div.innerText = "DONE"
+  result.
+    then(div => {
+      div.innerText = "DONE"
 
-
-    setTimeout(() => {
-      div.innerText = "UNDONE";
-      div.style.backgroundColor = "green";
-    }, 5000);
-  })
+      return div;
+    })
+    .then(div => {
+      setTimeout(() => {
+        div.innerText = "UNDONE";
+        div.style.backgroundColor = "green";
+      }, 3000);
+    })
 }
 
 
