@@ -2,7 +2,7 @@
 
 
 // Callbacks - function passed into another function as an argument, which is then invoked 
-// inside outer function to complete some kind of routine action.
+// by outer function to complete some kind of routine action.
 
 myDiv.addEventListener("click", function(){
   // do something!

@@ -112,12 +112,12 @@ showCircle(150, 150, 100).then(div => {
 
 //solution
 
-function go() {
-  showCircle(150, 150, 100).then(div => {
-    div.classList.add('message-ball');
-    div.append("Hello, world!");
-  });
-}
+// function go() {  // alternative option
+//   showCircle(150, 150, 100).then(div => {
+//     div.classList.add('message-ball');
+//     div.append("Hello, world!");
+//   });
+// }
 
 function showCircle(cx, cy, radius) {
   let div = document.createElement('div');
@@ -139,6 +139,85 @@ function showCircle(cx, cy, radius) {
           resolve(div);
         });
     }, 0);
+  })
 
+  showCircle(150, 150, 100).then(div => {
+    div.classList.add('message-ball');
+    div.append("Hello, world!");
+  });
+}
+
+
+// Rewrite function so: 
+// loadData() returns a Promise,
+// use .then()
+
+function loadData(callback) {
+  setTimeout(() => {
+    callback("User loaded");
+  }, 1000);
+}
+
+loadData(result => {
+  console.log(result);
+});
+
+// solution
+
+function loadData() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve("User loaded");
+    }, 1000)
   })
 }
+
+loadData().then(result => {
+  console.log(result)
+})
+
+
+// Create a function:
+
+createBox(color)
+
+// that:
+
+// Creates a <div>
+// Appends it to document.body
+// Waits 1 second using setTimeout
+// Changes the div background color
+// Resolves the Promise with the div
+
+
+function createBox(color) {
+  let div = document.createElement('div');
+  div.style.width = "100px";
+  div.style.height = "100px";
+  div.className = 'box';
+  document.body.append(div);
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      div.style.background = color;
+      resolve(div);
+    }, 1000);
+  })
+}
+
+
+function go() { // onclick set separately
+  const result = createBox("red")
+
+  result.then(div => {
+    div.innerText = "DONE"
+
+
+    setTimeout(() => {
+      div.innerText = "UNDONE";
+      div.style.backgroundColor = "green";
+    }, 5000);
+  })
+}
+
+
