@@ -134,63 +134,10 @@ console.log(3);
 // always run asynchronously.
 
 
-// practice:
+// functon after new Promise called executor
 
-new Promise((resolve) => {
-  console.log("A");
-  resolve("B");
-}).then((value) => {
-  console.log(value);
-});
+// the Executor function should call only one resolve or one reject
 
-console.log("C");
+// state and result are internal. we can directly access them, but by using methods
+// such as .then/.catch/.finally.
 
-// answer : A C B (+)
-
-new Promise((resolve) => {
-  resolve(10);
-})
-.then((x) => {
-  return x + 5;
-})
-.then((y) => {
-  console.log(y);
-});
-
-// answer : 15 (return stop execution!) (+)
-
-
-console.log(1);
-
-new Promise((resolve) => {
-  console.log(2);
-  resolve(3);
-}).then((x) => {
-  console.log(x);
-});
-
-console.log(4);
-
-
-// answer: 1 , 2, 4, 3 (+)
-
-
-const p = new Promise((resolve) => {
-  resolve("X");
-});
-
-p.then((v) => console.log("A", v));
-p.then((v) => console.log("B", v));
-
-
-// answer: A, X , B, X  (+)
-
-
-new Promise((resolve) => {
-  resolve(1);
-  console.log("after resolve");
-}).then((x) => {
-  console.log(x);
-});
-
-// answer:  after , 1 (+)
