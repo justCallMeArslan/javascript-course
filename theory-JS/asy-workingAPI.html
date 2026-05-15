@@ -1,18 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
-</head>
-<body>
-    
+    <style>
+        .main-cont {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            width: 100%;
+        }
 
-    <img src="#" alt="">
+        input {
+            margin-bottom: 5px;
+        }
+
+        button {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="main-cont">
+
+        <label for="random">What is your vibe?</label>
+        <input type="text" id="randomChoice" name="random">
+        <button type="submit">Submit</button>
+
+        <img src="#" alt="#">
+    </div>
+
 
 
     <script>
+
+        const API_KEY = "vYqYPbZkeo6B107FWIVDrNFMimnSHxLB";
+
+        const random = Math.floor(Math.random() * 100);
+        const input = document.querySelector('#randomChoice')
         const img = document.querySelector('img');
+        const submitBtn = document.querySelector('button');
+
+        fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=random&limit=1&offset=${random}`)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (response) {
+                img.src = response.data[0].images.original.url;
+
+            }).catch(err => {
+                console.error("Fetch error", err);
+                img.alt = "Failed to load GIF"
+
+            })
+
+
+
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const random = Math.floor(Math.random() * 100);
+            const search = input.value;
+
+
+            fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=1&offset=${random}`)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (response) {
+                    img.src = response.data[0].images.original.url;
+
+                })
+
+        })
+
+
+
     </script>
 
 
@@ -23,4 +91,5 @@
 
 
 </body>
+
 </html>
