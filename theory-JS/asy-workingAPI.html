@@ -28,18 +28,15 @@
 
     <div class="main-cont">
 
-        <label for="random">What is your vibe?</label>
+        <label for="random">Vibe pick:</label>
         <input type="text" id="randomChoice" name="random">
         <button type="submit">Submit</button>
 
         <img src="#" alt="#">
     </div>
 
-
-
     <script>
-
-        const API_KEY = "vYqYPbZkeo6B107FWIVDrNFMimnSHxLB";
+        const API_KEY = "YOUR API"; // old one is deleted
 
         const random = Math.floor(Math.random() * 100);
         const input = document.querySelector('#randomChoice')
@@ -60,7 +57,6 @@
             })
 
 
-
         submitBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
@@ -76,10 +72,7 @@
                     img.src = response.data[0].images.original.url;
 
                 })
-
         })
-
-
 
     </script>
 
