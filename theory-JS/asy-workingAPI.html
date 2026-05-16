@@ -36,50 +36,48 @@
     </div>
 
     <script>
-        const API_KEY = "YOUR API"; // old one is deleted
+        const API_KEY = "SQBIPDZMvsD3WpwaYrEwdsvOf7fPm86I"; // old one is deleted
 
         const random = Math.floor(Math.random() * 100);
         const input = document.querySelector('#randomChoice')
         const img = document.querySelector('img');
         const submitBtn = document.querySelector('button');
 
-        fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=random&limit=1&offset=${random}`)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (response) {
-                img.src = response.data[0].images.original.url;
 
-            }).catch(err => {
+        async function getRandomGif() {
+            try {
+                const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=random&limit=1&offset=${random}`);
+                const gifData = await response.json();
+                img.src = gifData.data[0].images.original.url;
+            } catch (err) {
                 console.error("Fetch error", err);
                 img.alt = "Failed to load GIF"
+            }
+        }
 
-            })
+        async function getVibedGif() {
+            try {
+                const search = input.value.trim();
+                const random = Math.floor(Math.random() * 100);
 
+                const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=1&offset=${random}`)
+                const vibedData = await response.json();
+                img.src = vibedData.data[0].images.original.url;
+            } catch (err) {
+                console.error("Fetch error", err);
+                img.alt = "Failed to load GIF"
+            }
+
+        }
+
+        getRandomGif();
 
         submitBtn.addEventListener('click', (e) => {
             e.preventDefault();
-
-            const random = Math.floor(Math.random() * 100);
-            const search = input.value;
-
-
-            fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=1&offset=${random}`)
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (response) {
-                    img.src = response.data[0].images.original.url;
-
-                })
+            getVibedGif();
         })
 
     </script>
-
-
-
-
-
 
 
 
