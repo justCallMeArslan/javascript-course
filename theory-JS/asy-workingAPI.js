@@ -2,7 +2,7 @@
 
 
 const fetchWeatherData = async () => {
-    const apiKey = 'CEYGX3757GY68JLTKBXRXVXB6';
+    const apiKey = 'CEYGX3757GY68JLTKBXRXVXB6'; // old one
     const location = 'Aktau';
     const unitGroup = 'metric';
     const contentType = 'json';
