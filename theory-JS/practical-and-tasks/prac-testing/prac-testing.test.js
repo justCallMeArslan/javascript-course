@@ -1,4 +1,4 @@
-import { sum, floatingSum, checkStr, checkStr1, cars } from "./prac-testing.js";
+import { sum, floatingSum, checkStr, checkStr1, cars, fetchData } from "./prac-testing.js";
 
 //numbers
 
@@ -28,4 +28,22 @@ test("there is da in Adam", () => {
 test("is theree a Volvo in cars", () => {
     expect(cars).toContain("Volvo");
     expect(new Set(cars)).toContain("Volvo")
+})
+
+
+// practice from more testing lesson 
+
+it("mock fetch", async () => {
+    global.fetch = jest.fn().mockReturnValueOnce({
+        json: jest.fn().mockReturnValueOnce({
+            id: 1,
+            todo: "Hello world!"
+        })
+
+    })
+    const result = await fetchData();
+
+    expect(result.todo).toBe("Hello world!") //checkig one fetched resuts to makesre we fetch
+
+
 })
