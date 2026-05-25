@@ -19,6 +19,11 @@ console.log(collatz(48)); // 1 1 1 1 1 1 1 1 1 1 1 = 11
 
 // Example of for loop into recursive function 
 
+
+// Example 1
+
+// for loop
+
 function countDown(n) {
     for (let i = n; i > 0; i--) {
         console.log(i);
@@ -26,4 +31,99 @@ function countDown(n) {
     console.log("Hooooray");
 }
 
-countDown(20);
+countDown(1);
+
+
+// recursive 
+
+function countDownRecursive(n) {
+    if (n <= 0) {
+        console.log("Hoooooray");
+        return
+    }
+    console.log(n);
+    countDownRecursive(n - 1);
+}
+
+countDownRecursive(1);
+
+
+// Example 2
+
+
+function sumRange(n) {
+    let total = 0;
+    for (let i = n; i > 0; i--) {
+        total += 1;
+    }
+    return total;
+}
+
+console.log(sumRange(15));
+
+
+function sumRangeRecursive(n, total = 0) {
+    if (n <= 0) {
+        return total
+    }
+    return sumRangeRecursive(n - 1, total + n);
+
+}
+
+console.log(sumRangeRecursive(3));
+
+
+// Example 3 
+
+
+function printChildren(t) {
+    // ????
+}
+
+function printChildrenRecursive(t) {
+    if (t.children.length === 0) {
+        return;
+    }
+    t.children.forEach(ch => {
+        console.log(ch.name);
+        printChildrenRecursive(ch);
+
+    });
+
+}
+
+const tree = {
+    name: "Meyrambek",
+    children: [
+        {
+            name: "Kotybar",
+            children: []
+        },
+        {
+            name: "Perdegul'",
+            children: [
+                {
+                    name: "Bolatbek",
+                    children: []
+                },
+                {
+                    name: "Rizabek",
+                    children: [{
+                        name: "Baurbek",
+                        children: []
+                    },
+                    {
+                        name: "Zhandarbek",
+                        children: []
+                    }]
+                }
+            ]
+        },
+        {
+            name: "Emshekgul'",
+            children: []
+        }
+    ]
+};
+
+printChildrenRecursive(tree);
