@@ -127,3 +127,13 @@ const tree = {
 };
 
 printChildrenRecursive(tree);
+
+
+
+// 5 simple steps 
+
+// 1. What is the simplest possible input?
+// 2. Play around with examples and visualize 
+// 3. Relate hard cases to simpler cases
+// 4. Generalize the pattern 
+// 5. Write code by combaning recursive pattern with the base case
