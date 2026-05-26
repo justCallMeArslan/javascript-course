@@ -137,3 +137,55 @@ printChildrenRecursive(tree);
 // 3. Relate hard cases to simpler cases
 // 4. Generalize the pattern 
 // 5. Write code by combaning recursive pattern with the base case
+
+
+
+// JS info assignment
+
+
+// iterative
+
+function pow(x, n) {
+    let result = 1;
+
+    // multiply result by x n times in the loop
+    for (let i = 0; i < n; i++) {
+        result *= x;
+    }
+
+    return result;
+}
+
+console.log(pow(2, 3));
+
+
+// recursive
+
+function pow(x, n) {
+    if (n == 1) {
+        return x;
+    } else {
+        return x * pow(x, n - 1);
+    }
+}
+
+console.log(pow(2, 3)); // 8
+
+// recursio principle
+
+//                 if n == 1   = x
+//               /
+// pow(x, n) =
+//              \
+//                 else        = x * pow(x, n - 1)
+
+
+// above function can be written :
+
+function pow(x, n) {
+    return (n == 1) ? x : (x * pow(x, n - 1));
+}
+
+// in all examples from above "n" is recursion depth (maximum is ~ 10000 (for some engines ~100000))
+
+
