@@ -188,4 +188,3 @@ function pow(x, n) {
 
 // in all examples from above "n" is recursion depth (maximum is ~ 10000 (for some engines ~100000))
 
-
