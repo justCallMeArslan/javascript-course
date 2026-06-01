@@ -21,7 +21,7 @@
 // input grows, so that we can directly compare the performance of two algorithms
 // and pick more efficient. 
 
-// the mostcommon Big O notations in the order of speed: 
+// The most common Big O notations in the order of speed: 
 
 // - O(1) = Constant Complexity,
 // - O(log n) = Logarithmic Complexity,
@@ -31,3 +31,14 @@
 // - O(n^3) = Cubic Complexity,
 // - O(2^n) = Exponential Complexity,
 // - O(n!) = Factorial Complexity
+
+
+
+
+// doabledanny.com
+
+// Time complexity is analysing how the runtime of an algorithm changes as the 
+// input increases. 
+
+// Space complexity (auxiliary space complexity) is the space required by 
+// the algorithm, not including inputs.
