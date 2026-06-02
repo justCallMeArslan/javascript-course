@@ -42,3 +42,24 @@
 
 // Space complexity (auxiliary space complexity) is the space required by 
 // the algorithm, not including inputs.
+
+// There is usually a trade-off between space complexity and time complexity: 
+// to increase the speed of an algorithm, you’ll likely need to store more 
+// variables in memory.
+
+
+// sahinarslan.com
+
+
+// Big O complexity Analysis flow, using approach that includes 3 main steps:
+
+// 1 - Analyse and break your function into individual operations.
+// 2 - Calculate the Big O of each operation one step at a time.
+// 3 - Add Big O of each operation together and calculate the end result.
+
+// And while going through those steps, we will keep 4 rules in mind:
+
+// 1 - Always assume the worst case.
+// 2 - Each input should have a unique variable.
+// 3 - Drop the constants.
+// 4 - Drop non-dominant terms.
