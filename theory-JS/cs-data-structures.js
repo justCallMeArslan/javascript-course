@@ -53,3 +53,24 @@ a();
 // call stack push order: a(), b() , c(), so c() was last in 
 // call stack pop/return order: c(), b(), a(), so c() is first out
 // output: "a", "b", "c"
+
+
+
+// Binary tree traversal - process of visiting each node in the tree exactly once 
+// in some order, where visit means reading or processing data in a node.
+
+// Binary tree is a kind of graph.
+
+// Tree traversal: 
+
+// 1. Breadth - first -> 
+// level order (checking by levels from top to bottom)
+//             (root)           L0
+//        (N7)        (N2)      L1
+//    (N3)   (N9)         (N4)  L2
+
+// 2. Depth - first (checking entire side first and them move to next):
+
+// <root> <left> <right> - Preorder
+// <left> <root> <right> - In-order
+// <left> <right> <root> - Postorder
