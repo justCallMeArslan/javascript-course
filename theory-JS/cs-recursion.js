@@ -50,7 +50,6 @@ countDownRecursive(1);
 
 // Example 2
 
-
 function sumRange(n) {
     let total = 0;
     for (let i = n; i > 0; i--) {
@@ -59,7 +58,7 @@ function sumRange(n) {
     return total;
 }
 
-console.log(sumRange(15));
+console.log(sumRange(3));
 
 
 function sumRangeRecursive(n, total = 0) {
@@ -156,7 +155,7 @@ function pow(x, n) {
     return result;
 }
 
-console.log(pow(2, 3));
+console.log(pow(2, 3)); // 8
 
 
 // recursive
