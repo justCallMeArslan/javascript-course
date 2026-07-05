@@ -53,12 +53,12 @@ countDownRecursive(1);
 function sumRange(n) {
     let total = 0;
     for (let i = n; i > 0; i--) {
-        total += 1;
+        total += i;
     }
     return total;
 }
 
-console.log(sumRange(3));
+console.log(sumRange(15));
 
 
 function sumRangeRecursive(n, total = 0) {
@@ -69,7 +69,7 @@ function sumRangeRecursive(n, total = 0) {
 
 }
 
-console.log(sumRangeRecursive(3));
+console.log(sumRangeRecursive(15));
 
 
 // Example 3 
