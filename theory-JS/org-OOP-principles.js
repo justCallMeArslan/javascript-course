@@ -1,13 +1,13 @@
 // Following SOLID guides and principles are helpful for understanding where and when 
 // use OOP, such as factory functions, objects , etc:
 
-// example of sigle resposibility
+// example of sigle responsibility
 
 function isGameOver() {  // object for checking is game over or not
 
     // game over logic goes here!
 
-    if (gameOver) { // DOM creates div as a window to declare winner, should be out if object
+    if (gameOver) { // DOM creates div as a window to declare winner
         const gameOverDiv = document.createElement('div');
         gameOverDiv.classList.add('game-over');
         gameOverDiv.textContent = `${this.winner} won the game!`;
@@ -30,23 +30,23 @@ function isGameOver1() {
 // Concept is that objects should not be tightly coupled, which means they should be easliy
 // replacable, if change is needed. 
 
-// 1. Single responsibility Princpiple - class, object or module should only have one responsibility.
+// 1. Single Responsibility Principle - class, object or module should only have one responsibility.
 // Object can do more than only one thing, but all what it does shoud be part of one responsibility.
 
-// 2. Open-closed principle says - code should be open for extension , but closed for modification,
+// 2. Open-Closed Principle says - code should be open for extension , but closed for modification,
 // meaning that if we want to add additional functionality. we should be able to simply extend, without
 // excessive modify.
 
-// 3. Liskov substitution states - any class should be substitutable for its parent 
+// 3. Liskov Substitution States - any class should be substitutable for its parent 
 // class without unexpected consequences, meaning that every extending class should be able to 
 // take all functionallity from class it extends from.
 
-// 4. Interface segregtion principle states - an entity should never be forced to implement 
+// 4. Interface Segregation Principle states - an entity should never be forced to implement 
 // an interface which contains elements which it will never use. E.g:
 // Chicken, Eagle and fly(). Eagle can fly(), so fly can be assigned to Eagle, but Chicken cant fly,
 // so it cannnot implement fly().
 
-// 5. Dependency injection principle says - high level code should never depend on low level 
+// 5. Dependency Injection Principle says - high level code should never depend on low level 
 // interfaces, and they both should instead use abstraction. 
 
 
