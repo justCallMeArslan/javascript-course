@@ -1,7 +1,7 @@
 // Webpack
 
 
-// Webpack is a bundler (60-70% of legacy and 10-20% of new projects).
+// Webpack is a bundler (60-70% of legacy code and 10-20% of new projects).
 
 // Webpack is an open-source JavaScript module bundler widely used in modern web development. 
 // It takes application modules and their dependencies—JavaScript, CSS, images, and more—and 
